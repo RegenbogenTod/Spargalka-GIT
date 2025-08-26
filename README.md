@@ -93,11 +93,11 @@
 
 ```mermaid
 graph LR
-untracked -- git add --> staged(+tracked);
-staged(+tracked) -- git commit --> tracked;
-tracked -- изменение файла --> modified(+tracked);
-modified(+tracked) -- git add --> staged(+tracked);
-staged(+tracked) -- изменение файла --> modified(+tracked)
+untracked -- git add --> staged+tracked;
+staged+tracked -- git commit --> tracked;
+tracked -- изменение файла --> modified+tracked;
+modified+tracked -- git add --> staged+tracked;
+staged+tracked -- изменение файла --> modified+tracked
 ```
 
 *Примечание:
