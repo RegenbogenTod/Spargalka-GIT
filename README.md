@@ -81,6 +81,24 @@
 Например, если мы введем команду **cat refs/heads/master**, то получим хэш последнего коммита:
 *32403471f36d5fd74888e4d3a7d721ab204bd183*
 
+## Статусы файлов в GIT
+
+Основные статусы:
+* *untracked* - неотслеживаемый файл;
+* *staged* - подготовленный файл после выполнения команды git add;
+* *tracked* - отслеживаемый файл. В него попадают файла после выполнения команд git add и git commit;
+* *modified* - измененный файл после коммита;
+
+### Жизненный цикл файла в GIT:
+
+```mermaid
+graph LR
+untracked -- git add --> staged(+tracked);
+staged(+tracked) -- git commit --> tracked;
+tracked -- изменение файла --> modified(+tracked);
+modified(+tracked) -- git add --> staged(+tracked);
+staged(+tracked) -- изменение файла --> modified(+tracked)
+```
 
 *Примечание:
 Для оформление текстовых файлов поможет [шпаргалка](https://gist.github.com/fomvasss/8dd8cd7f88c67a4e3727f9d39224a84c)*
